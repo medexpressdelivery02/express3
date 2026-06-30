@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "361362153988",
+    "project_id": "express-731af",
+    "storage_bucket": "express-731af.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361362153988:android:ecfdd30098a70ca44fcb51",
+        "android_client_info": {
+          "package_name": "com.express.express"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDlKsTbCdMM8SrQfJRCTMDGEfl3GELle8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361362153988:android:f8fa0ff11841e08d4fcb51",
+        "android_client_info": {
+          "package_name": "com.ibaa.express3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDlKsTbCdMM8SrQfJRCTMDGEfl3GELle8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
