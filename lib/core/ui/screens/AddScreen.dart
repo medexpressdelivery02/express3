@@ -171,6 +171,7 @@ class _AddScreen extends State<AddScreen> {
                         ),
 
                         const SizedBox(height: 12,),
+
                         GestureDetector(
                           child: Stack(
                             children: [
@@ -233,6 +234,7 @@ class _AddScreen extends State<AddScreen> {
                         ),
 
                         const SizedBox(height: 12,),
+
                         Container(
                           height: 48,
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -259,6 +261,7 @@ class _AddScreen extends State<AddScreen> {
                         ),
 
                         const SizedBox(height: 12,),
+
                         Container(
                           height: 48,
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -286,6 +289,7 @@ class _AddScreen extends State<AddScreen> {
                         ),
 
                         const SizedBox(height: 12,),
+
                         Stack(
                           children: [
                             GestureDetector(
@@ -349,6 +353,7 @@ class _AddScreen extends State<AddScreen> {
                         ),
 
                         const SizedBox(height: 12,),
+
                         Stack(
                           children: [
                             GestureDetector(
