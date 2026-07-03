@@ -149,6 +149,72 @@ class _LoginScreen extends State<LoginScreen> {
                     ),
                   ),
 
+                  GestureDetector(
+                    onTap: () {
+
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            contentPadding: EdgeInsetsGeometry.all(16),
+                            backgroundColor: Colors.white,
+                            content: SizedBox(
+                              width: double.maxFinite,
+                              child: ListView(
+                                shrinkWrap: true,
+                                children: [
+
+                                  Center(child: Text('Appeler Bureau Chlef (Ilyas) :\n05.63.63.59.92',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+
+                                  SizedBox(height: 12,),
+
+                                  Center(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(50),
+                                          color: kc1,
+                                        ),
+                                        child: Text(
+                                          'Ok', style: TextStyle(
+                                            color: kc2,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600
+                                        ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Container(
+                      height: 48,
+                      width: double.infinity,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Mot de passe oublié ?', style: TextStyle(
+                            color: kc1,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500
+                        ),
+                        ),
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
             ),

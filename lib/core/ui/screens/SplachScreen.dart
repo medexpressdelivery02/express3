@@ -47,7 +47,7 @@ class _SplachScreen extends State<SplachScreen> {
                   child: ListView(
                     shrinkWrap: true,
                     children: [
-                      Center(child: Text('Installer la nouvelle mise à jour pour continuer, ou appeler Bureau Chlef (Ilyas) :\n05 63 63 59 92',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+                      Center(child: Text('Installer la nouvelle mise à jour pour continuer, ou appeler Bureau Chlef (Ilyas) :\n05.63.63.59.92',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
 
                       SizedBox(height: 12,),
 
@@ -98,7 +98,7 @@ class _SplachScreen extends State<SplachScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()=> onWillPopExit() ,
+      onWillPop: ()=> onWillPopExit(),
       child: Material(
         color: kc2,
         child: SafeArea(
@@ -175,6 +175,7 @@ class _SplachScreen extends State<SplachScreen> {
                                 fontWeight: FontWeight.w400,
                                 fontSize: 12
                             ),overflow: TextOverflow.ellipsis,),
+                            SizedBox(height: 2,),
                             Text(ks0,style: TextStyle(
                               color: Colors.black.withOpacity(0.8),
                               fontWeight: FontWeight.w200,

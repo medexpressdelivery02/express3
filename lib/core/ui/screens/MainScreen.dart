@@ -103,16 +103,25 @@ class _MainScreen extends State<MainScreen> {
         child: Column(
           children: [
 
-            SizedBox(height: 16,),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
-              child: Text(
-                prefs!.getString('store_name').toString(), style: TextStyle(
-                  color: Colors.black.withOpacity(0.75),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
-              ),
+            GestureDetector(
+              onLongPress: () {
+                _scaffoldKey.currentState?.closeDrawer();
+                Navigator.of(context).pushNamed('/aa');
+              },
+              child: Container(
+                color: Colors.transparent,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 32, 8, 4),
+                    child: Text(
+                      prefs!.getString('store_name').toString(), style: TextStyle(
+                        color: Colors.black.withOpacity(0.75),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
+                    ),
+                    ),
+                  ),
+                ),
               ),
             ),
 
@@ -512,7 +521,7 @@ class _MainScreen extends State<MainScreen> {
                   top: 8
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.transparent,
+                    color: Colors.red,
                     borderRadius: BorderRadius.all(Radius.circular(6)),
                   border: Border.all(
                     width: 2.2,
@@ -522,7 +531,7 @@ class _MainScreen extends State<MainScreen> {
                   child: Center(
                     child: Text(
                       'Archiver', style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.white,
                         fontSize: 17,
                         fontWeight: FontWeight.w600
                     ),
