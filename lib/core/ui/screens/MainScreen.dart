@@ -5,7 +5,9 @@ import 'package:express3/utils/Ext1.dart';
 import 'package:express3/utils/Ext2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainScreen extends StatefulWidget {
 
@@ -110,16 +112,14 @@ class _MainScreen extends State<MainScreen> {
               },
               child: Container(
                 color: Colors.transparent,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 32, 8, 4),
-                    child: Text(
-                      prefs!.getString('store_name').toString(), style: TextStyle(
-                        color: Colors.black.withOpacity(0.75),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
-                    ),
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 32, 8, 8),
+                  child: Text(
+                    prefs!.getString('store_name').toString(), style: TextStyle(
+                      color: Colors.black.withOpacity(0.75),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
+                  ),
                   ),
                 ),
               ),
@@ -131,19 +131,88 @@ class _MainScreen extends State<MainScreen> {
                 Navigator.of(context).pushNamed('/price');
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(vertical: 4),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: kc1,
                 ),
-                child: Text(
-                  'Tarifs / Bureaux', style: TextStyle(
-                    color: kc2,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600
-                ),
+                child: Center(
+                  child: Text(
+                    'Tarifs / Bureaux', style: TextStyle(
+                      color: kc2,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                  ),
+                  ),
                 ),
               ),
+            ),
+
+            SizedBox(height: 8,),
+
+            Row(
+
+              children: [
+
+                SizedBox(width: 8,),
+
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      launchUrl(Uri.parse('https://www.facebook.com/profile.php?id=61585190468117'));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: kc1,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Facebook', style: TextStyle(
+                            color: kc2,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600
+                        ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 4,),
+
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      launchUrl(Uri.parse('https://wa.me/0563635992'));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: kc1,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Whatsapp', style: TextStyle(
+                            color: kc2,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600
+                        ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 8,),
+
+              ],
             ),
 
             Spacer(flex: 5,),
@@ -164,6 +233,7 @@ class _MainScreen extends State<MainScreen> {
               ),
               ),
             ),
+
             Container(
               height: 3,
               width: 127,
