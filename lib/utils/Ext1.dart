@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Ext2.dart';
 
-const ks0='V2.1.2';
+const ks0='V2.1.3';
 const ks1="assets/icons/";
 const ks2="assets/images/";
 const ks3="https://swift.ecotrack.dz";
@@ -45,7 +45,6 @@ String getPerfectSt(String? s1,String s2) {
 }
 
 List<wilaya> LW() {
-  List<wilaya> L=[];
   LWS.sort((a,b) {
     return a.s1.compareTo(b.s1);
   });

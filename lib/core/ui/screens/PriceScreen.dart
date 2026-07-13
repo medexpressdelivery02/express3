@@ -54,10 +54,67 @@ class _PriceScreen extends State<PriceScreen> {
               ),
             ),
 
-            Expanded(
-              child: ListView(
-                children: [
+            Expanded(child: ListView.builder(
+              itemCount: LW().length,
+              itemBuilder: (context, index) {
 
+                return Container(
+                  width: double.infinity,
+                  margin: EdgeInsetsGeometry.symmetric(horizontal: 12,vertical: 8),
+                  padding: EdgeInsetsGeometry.symmetric(horizontal: 12,vertical: 8),
+                  decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.08),
+                      borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Text(LW()[index].s1,style: TextStyle(color: Colors.black.withOpacity(0.8),fontWeight: FontWeight.w700,fontSize: 16),),
+
+                      SizedBox(height: 6,),
+
+                      ...LW()[index].LS1.map((e) {
+
+                        return Wrap(
+                          children: [
+
+                            if(LW()[index].LS1.length!=1) Text('$e : ',style: TextStyle(color: Colors.black.withOpacity(0.7),fontWeight: FontWeight.w700,fontSize: 16),),
+                            Text(LW()[index].LM1[e].toString(),style: TextStyle(color: Colors.black.withOpacity(0.8),fontWeight: FontWeight.w700,fontSize: 16),),
+                          ],
+                        );
+
+                      },),
+
+                      SizedBox(height: 6,),
+
+                      Wrap(
+                        children: [
+
+                          Text('À domicile : ',style: TextStyle(color: Colors.black.withOpacity(0.6),fontWeight: FontWeight.w700,fontSize: 16),),
+                          Text('${LW()[index].i1} DA',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w800,fontSize: 16),),
+                          Text('   -   ',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: 16),),
+                          Text('Stop desk : ',style: TextStyle(color: Colors.black.withOpacity(0.6),fontWeight: FontWeight.w700,fontSize: 16),),
+                          Text('${LW()[index].i2} DA',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w800,fontSize: 16),),
+
+
+                        ],
+                      )
+
+                    ],
+                  ),
+                );
+
+              },
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/*
                   SizedBox(
                     height: 2500,
                     child: ListView(
@@ -70,13 +127,4 @@ class _PriceScreen extends State<PriceScreen> {
                       ],
                     ),
                   ),
-
-                ]
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+ */
