@@ -480,13 +480,6 @@ class _MainScreen extends State<MainScreen> {
                 ))
               ),
 
-              Container(
-                padding: EdgeInsetsGeometry.symmetric(vertical: 4),
-                color: kc1,
-                child: Center(
-                  child: Text('Bureau Chlef (Ilyas) : 05 63 63 59 92',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-                ),
-              )
             ],
           ),
         ),
