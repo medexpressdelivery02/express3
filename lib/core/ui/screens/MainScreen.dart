@@ -415,11 +415,11 @@ class _MainScreen extends State<MainScreen> {
                           fontWeight: FontWeight.w600
                       ),
                       ),
-                      if(jld(0)!=0) Container(
+                      if(jld(4)!=0) Container(
                         margin: EdgeInsets.only(left: 6),
                         color: Colors.black,
                         child: Text(
-                          ' ${jld(0)} ', style: TextStyle(
+                          ' ${jld(4)} ', style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.w900
