@@ -96,7 +96,7 @@ class _AdminAuthScreen extends State<AdminAuthScreen> {
 
         if(password=='107') {
 
-          Future.delayed(const Duration(milliseconds: 500), () {
+          Future.delayed(const Duration(milliseconds: 750), () {
 
             if(password=='107') Navigator.of(context).popAndPushNamed('/as');
 

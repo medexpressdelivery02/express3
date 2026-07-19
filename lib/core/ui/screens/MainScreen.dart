@@ -102,273 +102,344 @@ class _MainScreen extends State<MainScreen> {
       width: 240,
       height: double.infinity,
       child: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-
-            GestureDetector(
-              onLongPress: () {
-                _scaffoldKey.currentState?.closeDrawer();
-                Navigator.of(context).pushNamed('/aa');
-              },
-              child: Container(
-                color: Colors.transparent,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 32, 8, 8),
-                  child: Text(
-                    prefs!.getString('store_name').toString(), style: TextStyle(
-                      color: Colors.black.withOpacity(0.75),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
-                  ),
-                  ),
-                ),
-              ),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                _scaffoldKey.currentState?.closeDrawer();
-                Navigator.of(context).pushNamed('/price');
-              },
-              child: Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 8),
-                padding: EdgeInsets.symmetric(vertical: 4),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: kc1,
-                ),
-                child: Center(
-                  child: Text(
-                    'Tarifs / Bureaux', style: TextStyle(
-                      color: kc2,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                  ),
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 8,),
-
-            Row(
-
-              children: [
-
-                SizedBox(width: 8,),
-
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      launchUrl(Uri.parse('https://www.facebook.com/profile.php?id=61585190468117'));
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: kc1,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Facebook', style: TextStyle(
-                            color: kc2,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600
-                        ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(width: 4,),
-
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      launchUrl(Uri.parse('https://wa.me/0563635992'));
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: kc1,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Whatsapp', style: TextStyle(
-                            color: kc2,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600
-                        ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(width: 8,),
-
-              ],
-            ),
-
-            Spacer(flex: 5,),
-
-            GestureDetector(
-              onTap: () {
-
-                setState(() {
-                  cp=0;
-                });
-                _scaffoldKey.currentState?.closeDrawer();
-              },
-              child: Text(
-                'Vers Station', style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-
-            Container(
-              height: 3,
-              width: 127,
-              color: kc1,
-            ),
-
-            Spacer(flex: 1,),
-
-            GestureDetector(
-              onTap: () {
-
-                setState(() {
-                  cp=1;
-                });
-                _scaffoldKey.currentState?.closeDrawer();
-              },
-              child: Text(
-                'Vers Wilaya', style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-            Container(
-              height: 3,
-              width: 123,
-              color: kc1,
-            ),
-
-            Spacer(flex: 1,),
-
-            GestureDetector(
-              onTap: () {
-
-                setState(() {
-                  cp=2;
-                });
-                _scaffoldKey.currentState?.closeDrawer();
-              },
-              child: Text(
-                'En Livraison', style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-            Container(
-              height: 3,
-              width: 126,
-              color: kc1,
-            ),
-
-            Spacer(flex: 1,),
-
-            GestureDetector(
-              onTap: () {
-
-                setState(() {
-                  cp=3;
-                });
-                _scaffoldKey.currentState?.closeDrawer();
-              },
-              child: Text(
-                'Livrés', style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-            Container(
-              height: 3,
-              width: 68,
-              color: Colors.green,
-            ),
-
-            Spacer(flex: 1,),
-
-            GestureDetector(
-              onTap: () {
-
-                setState(() {
-                  cp=4;
-                });
-                _scaffoldKey.currentState?.closeDrawer();
-              },
-              child: Text(
-                'Retours', style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600
-              ),
-              ),
-            ),
-            Container(
-              height: 3,
-              width: 80,
-              color: Colors.red,
-            ),
-
-            Spacer(flex: 8,),
-
-
-            GestureDetector(
-              onTap: () {
-                prefs?.setString('store_name','');
-                Navigator.of(context).pushReplacementNamed('/login');
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Positioned.fill(
+              child: Column(
                 children: [
-                  Text(
-                    'Déconnecter', style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600
+
+                  GestureDetector(
+                    onLongPress: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      Navigator.of(context).pushNamed('/aa');
+                    },
+                    child: Container(
+                      color: Colors.transparent,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 42, 8, 4),
+                        child: Text(
+                          prefs!.getString('store_name').toString(), style: TextStyle(
+                            color: Colors.black.withOpacity(0.75),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,overflow: TextOverflow.ellipsis
+                        ),
+                        ),
+                      ),
+                    ),
                   ),
+
+                  GestureDetector(
+                      onTap: () {
+                        _scaffoldKey.currentState?.closeDrawer();
+                        Navigator.of(context).pushNamed('/price');
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 4,horizontal: 12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: kc1,
+                        ),
+                        child: Text(
+                          'Tarifs / Bureaux', style: TextStyle(
+                            color: kc2,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600
+                        ),
+                        ),
+                      ),
+                    ),
+
+                  Spacer(),
+
+                  Row(
+                    children: [
+
+                      Spacer(flex: 1,),
+
+                      Expanded(
+                          flex: 4,
+                          child: GestureDetector(
+                        onTap: () {
+                          _scaffoldKey.currentState?.closeDrawer();
+                          launchUrl(Uri.parse('https://www.facebook.com/profile.php?id=61585190468117'));
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Center(
+                            child: Image.asset('${ks1}fb.png',width: 52,fit: BoxFit.cover,),
+                          ),
+                        ),
+                      )),
+
+                      Expanded(
+                          flex: 4,
+                          child: GestureDetector(
+                        onTap: () {
+                          _scaffoldKey.currentState?.closeDrawer();
+                          launchUrl(Uri.parse('https://wa.me/0563635992'));
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Center(
+                            child: Image.asset('${ks1}ws.png',width: 52,fit: BoxFit.cover,),
+                          ),
+                        ),
+                      )),
+
+                      Spacer(flex: 1,),
+
+                    ],
                   ),
-                  Image.asset('${ks1}logout.png',width: 24,color: Colors.black,fit: BoxFit.cover,),
+
+                  SizedBox(height: 14,),
+
+                  GestureDetector(
+                    onTap: () {
+                      prefs?.setString('store_name','');
+                      Navigator.of(context).pushReplacementNamed('/login');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Déconnecter', style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600
+                        ),
+                        ),
+                        //Image.asset('${ks1}logout.png',width: 24,color: Colors.black,fit: BoxFit.cover,),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 12,),
+
+                  Text(ks0,style: TextStyle(
+                    color: Colors.black.withOpacity(0.75),
+                    fontWeight: FontWeight.w200,
+                    fontSize: 12,
+                  ),overflow: TextOverflow.ellipsis,),
+
+                  SizedBox(height: 12,),
+
                 ],
               ),
             ),
 
-            SizedBox(height: 8,),
+            Positioned.fill(child: Column(
+              children: [
 
-            Text(ks0,style: TextStyle(
-              color: Colors.black.withOpacity(0.8),
-              fontWeight: FontWeight.w200,
-              fontSize: 12,
-            ),overflow: TextOverflow.ellipsis,),
+                Spacer(flex: 7,),
 
-            SizedBox(height: 22,),
+                GestureDetector(
+                  onTap: () {
 
+                    setState(() {
+                      cp=0;
+                    });
+                    _scaffoldKey.currentState?.closeDrawer();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Vers Station', style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600
+                      ),
+                      ),
+
+                      if(jld(0)!=0) Container(
+                        margin: EdgeInsets.only(left: 6),
+                        color: Colors.red,
+                        child: Text(
+                          ' ${jld(0)} ', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w900
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 3,
+                  width: 127,
+                  color: kc1,
+                ),
+
+                Spacer(flex: 1,),
+
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      cp=1;
+                    });
+                    _scaffoldKey.currentState?.closeDrawer();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Vers Wilaya', style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600
+                      ),
+                      ),
+                      if(jld(1)!=0) Container(
+                        margin: EdgeInsets.only(left: 6),
+                        color: Colors.red,
+                        child: Text(
+                          ' ${jld(1)} ', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w900
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 3,
+                  width: 123,
+                  color: kc1,
+                ),
+
+                Spacer(flex: 1,),
+
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      cp=2;
+                    });
+                    _scaffoldKey.currentState?.closeDrawer();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'En Livraison', style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600
+                      ),
+                      ),
+                      if(jld(2)!=0) Container(
+                        margin: EdgeInsets.only(left: 6),
+                        color: Colors.red,
+                        child: Text(
+                          ' ${jld(2)} ', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w900
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 3,
+                  width: 126,
+                  color: kc1,
+                ),
+
+                Spacer(flex: 1,),
+
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      cp=3;
+                    });
+                    _scaffoldKey.currentState?.closeDrawer();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Livrés', style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600
+                      ),
+                      ),
+                      if(jld(3)!=0) Container(
+                        margin: EdgeInsets.only(left: 6),
+                        color: Colors.black,
+                        child: Text(
+                          ' ${jld(3)} ', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w900
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 3,
+                  width: 68,
+                  color: Colors.green,
+                ),
+
+                Spacer(flex: 1,),
+
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      cp=4;
+                    });
+                    _scaffoldKey.currentState?.closeDrawer();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Retours', style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600
+                      ),
+                      ),
+                      if(jld(0)!=0) Container(
+                        margin: EdgeInsets.only(left: 6),
+                        color: Colors.black,
+                        child: Text(
+                          ' ${jld(0)} ', style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w900
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 3,
+                  width: 80,
+                  color: Colors.red,
+                ),
+
+                Spacer(flex: 8,),
+
+              ],
+            ))
           ],
         ),
       ),
@@ -509,6 +580,27 @@ class _MainScreen extends State<MainScreen> {
       }
     });
   }
+
+  int jld(int i) {
+    int j=0;
+
+    for (var e in ld) {
+
+      if(i==0&&(e.status=='Prêt à expédier'||e.status=='Prêt à préparer'||e.status=='En ramassage'||e.status=='Stock en préparation')) {
+        j++;
+      } else if(i==1&&(e.status=='Vers hub'||e.status=='En hub'||e.status=='Vers wilaya')) {
+        j++;
+      } else if(i==2&&(e.status=='En préparation'||e.status=='En livraison'||e.status=='Suspendus')) {
+        j++;
+      } else if(i==3&&(e.status=='Livre non encaissé'||e.status=='Livre encaissé non payé'||e.status=='Paiement prêt'||e.status=='Paiement archivé')) {
+        j++;
+      } else if(i==4&&(e.status=='Retours chez livreur'||e.status=='Retours en traitement'||e.status=='Retours prêts'||e.status=='Retours reçu'||e.status=='Retours à dispatcher vers stock'||e.status=='Retours en transit stock'||e.status=='Retours en stock'||e.status=='Retours archivé')) {
+        j++;
+      }
+    }
+    return j;
+  }
+
 
   Widget item(OrderData d) {
     var u='';
