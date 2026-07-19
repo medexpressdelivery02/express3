@@ -497,6 +497,18 @@ class _MainScreen extends State<MainScreen> {
                       ),
                     ),
 
+                    if(jld(cp)!=0) Container(
+                      margin: EdgeInsets.only(left: 6),
+                      color: cp>2?Colors.black:Colors.red,
+                      child: Text(
+                        ' ${jld(cp)} ', style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w900
+                      ),
+                      ),
+                    ),
+
                     Spacer(),
 
                     GestureDetector(
