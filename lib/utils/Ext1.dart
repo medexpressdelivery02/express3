@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Ext2.dart';
 
-const ks0='V2.1.3';
+const ks0='V2.1.4';
 const ks1="assets/icons/";
 const ks2="assets/images/";
 const ks3="https://swift.ecotrack.dz";
