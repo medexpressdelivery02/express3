@@ -154,7 +154,7 @@ class _AddScreen extends State<AddScreen> {
                                   return AlertDialog(
                                     contentPadding: EdgeInsetsGeometry.all(16),
                                     backgroundColor: Colors.white,
-                                    content: setupAlertDialog([wilaya(0,'À domicile',[],{},[]),wilaya(0,'Stop Desk',[],{},[])], (e) {
+                                    content: setupAlertDialog([wilaya(0,'À domicile','',[],{},[]),wilaya(0,'Stop Desk','',[],{},[])], (e) {
                                       tec1.text=e.s1;
                                       tec6.text='';
                                       tec7.text='';
@@ -218,7 +218,7 @@ class _AddScreen extends State<AddScreen> {
                                   return AlertDialog(
                                     contentPadding: EdgeInsetsGeometry.all(16),
                                     backgroundColor: Colors.white,
-                                    content: setupAlertDialog([wilaya(0,'Livraison',[],{},[]),wilaya(0,'Échange',[],{},[])], (e) {
+                                    content: setupAlertDialog([wilaya(0,'Livraison','',[],{},[]),wilaya(0,'Échange','',[],{},[])], (e) {
                                       tec2.text=e.s1;
                                       tec7.text='';
                                       tec8.text='';

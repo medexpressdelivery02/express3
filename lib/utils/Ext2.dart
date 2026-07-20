@@ -1,7 +1,7 @@
 import 'package:express3/core/models/wilaya.dart';
 
 List<wilaya> LWS=[
-  wilaya(16,'Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia'],
+  wilaya(16,'Alger','Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia'],
       {
         'Bab Ezzouar': 'AADL, Les bananiers',
         'Mohammadia': 'Mohammadia',
@@ -66,7 +66,7 @@ List<wilaya> LWS=[
         "Zeralda"
       ]
   ),
-  wilaya(42,'Tipaza',i1: 700, i2: 400,['Tipaza'],
+  wilaya(42,'Tipaza','Tipaza',i1: 700, i2: 400,['Tipaza'],
       {
             'Tipaza': 'Cité AADL 1700 logts le jardine',
       },
@@ -101,7 +101,7 @@ List<wilaya> LWS=[
         "Tipaza"
       ]
   ),
-  wilaya(9,'Blida',i1: 700, i2: 400,['Blida'],
+  wilaya(9,'Blida','Blida',i1: 700, i2: 400,['Blida'],
       {
             'Blida': '13 Mai en face Banque BNA boulevard Top chop',
       },
@@ -133,7 +133,7 @@ List<wilaya> LWS=[
         "Souma"
       ]
   ),
-  wilaya(27,'Mostaganem',i1: 700, i2: 450,['Mostaganem'],
+  wilaya(27,'Mostaganem','Mostaganem',i1: 700, i2: 450,['Mostaganem'],
       {
             'Mostaganem': 'Rue Belarbi M Barek',
       },
@@ -172,9 +172,9 @@ List<wilaya> LWS=[
         "Touahria"
       ]
   ),
-  wilaya(26,'Médéa',i1: 700, i2: 400,['Medea'],
+  wilaya(26,'Médéa','Medea',i1: 700, i2: 400,['Medea'],
       {
-            'Medea': 'Pôle urbain Médéa',
+            'Medea': 'Pôle urbain',
       },
       [
         "Ain Boucif",
@@ -243,7 +243,7 @@ List<wilaya> LWS=[
         "Zoubiria"
       ]
   ),
-  wilaya(14,'Tiaret',i1: 750, i2: 450,['Tiaret'],
+  wilaya(14,'Tiaret','Tiaret',i1: 750, i2: 450,['Tiaret'],
       {
             'Tiaret': 'Rue commandant Mejdoub',
       },
@@ -292,10 +292,9 @@ List<wilaya> LWS=[
         "Zmalet El Emir Abdelkade"
       ]
   ),
-  wilaya(31,'Oran',i1: 750, i2: 450,['Bir El Djir'],
-      s0: 'MED',
+  wilaya(31,'Oran','Oran',i1: 750, i2: 450,['Bir El Djir'],
       {
-            'Bir El Djir': 'Cité El Yasmine, à côté du marché couvert',
+            'Bir El Djir': 'Rue colonel Atman hai khmisti',
       },
       [
         "Ain Biya",
@@ -326,7 +325,7 @@ List<wilaya> LWS=[
         "Tafraoui"
       ]
   ),
-  wilaya(22,'Sidi Bel Abbès',i1: 750, i2: 450,['Sidi Bel Abbes'],
+  wilaya(22,'Sidi Bel Abbès','Sidi Bel Abbes',i1: 750, i2: 450,['Sidi Bel Abbes'],
       {
             'Sidi Bel Abbes': 'CITÉ sidi jileli avenue azzouz mohamed 28 logement numéro 11',
       },
@@ -384,9 +383,9 @@ List<wilaya> LWS=[
             "Tilmouni",
             "Zerouala"
       ]  ),
-  wilaya(15,'Tizi Ouzou',i1: 700, i2: 450,['Boghni','Tizi Ouzou'],
+  wilaya(15,'Tizi Ouzou','Tizi Ouzou',i1: 700, i2: 450,['Boghni','Tizi Ouzou'],
       {
-            'Boghni': 'Local N°01 a côté salle des fêtes ben akli, la rocade Boghni',
+            'Boghni': 'Local N°01 a côté salle des fêtes ben akli, la rocade',
             'Tizi Ouzou': 'Rue frère beggaze n ville a côté dylia market',
       },
       [
@@ -460,9 +459,9 @@ List<wilaya> LWS=[
         "Zekri"
       ]
   ),
-  wilaya(13,'Tlemcen',i1: 800, i2: 450,['Tlemcen'],
+  wilaya(13,'Tlemcen','Tlemcen',i1: 800, i2: 450,['Tlemcen'],
       {
-            'Tlemcen': 'N 351 HAI LES DALIAS EL KIFFANE TLEMCEN',
+            'Tlemcen': 'N 351 HAI LES DALIAS EL KIFFANE',
       },
       [
         "Ain Fettah",
@@ -520,7 +519,7 @@ List<wilaya> LWS=[
         "Zenata"
       ]
   ),
-  wilaya(34,'Bordj Bou Arreridj',i1: 700, i2: 450,['Bordj Bou Arreridj'],
+  wilaya(34,'Bordj Bou Arreridj','Bordj Bou Arreridj',i1: 700, i2: 450,['Bordj Bou Arreridj'],
       {
             'Bordj Bou Arreridj': 'City 1008 proche de librairie amir',
       },
@@ -561,7 +560,7 @@ List<wilaya> LWS=[
         "Tixter"
       ]
   ),
-  wilaya(19,'Sétif',i1: 750, i2: 450,['El Eulma','Setif'],
+  wilaya(19,'Sétif','Setif',i1: 750, i2: 450,['El Eulma','Setif'],
       {
             'El Eulma': 'Eulma tashomi',
             'Setif': 'City batwar a côté de Marché automobile hebdomadaire',
@@ -629,7 +628,7 @@ List<wilaya> LWS=[
         "Tizi N'bechar"
       ]
   ),
-  wilaya(18,'Jijel',i1: 750, i2: 450,['Djemaa Beni Habibi','Jijel'],
+  wilaya(18,'Jijel','Jijel',i1: 750, i2: 450,['Djemaa Beni Habibi','Jijel'],
       {
             'Djemaa Beni Habibi': 'RUE GHARBI SALAH',
             'Jijel': 'Rue chrikan Ali',
@@ -665,7 +664,7 @@ List<wilaya> LWS=[
         "Ziama Mansouria"
       ]
   ),
-  wilaya(43,'Mila',i1: 750, i2: 450,['Mila'],
+  wilaya(43,'Mila','Mila',i1: 750, i2: 450,['Mila'],
       {
             'Mila': "En face l'office national d'assainissement (ONA)",
       },
@@ -703,9 +702,9 @@ List<wilaya> LWS=[
             "Yahia Beniguecha",
             "Zeghaia"
       ]  ),
-  wilaya(25,'Constantine',i1: 750, i2: 450,['El Khroub'],
+  wilaya(25,'Constantine','',i1: 750, i2: 450,['El Khroub'],
       {
-            'El Khroub': 'Cite mànar en face SNTV d’el-khroub',
+            'El Khroub': 'Cite mànar en face SNTV',
       },
       [
         "Ain Abid",
@@ -722,7 +721,7 @@ List<wilaya> LWS=[
         "Zighoud Youcef"
       ]
   ),
-  wilaya(21,'Skikda',i1: 750, i2: 450,['Skikda'],
+  wilaya(21,'Skikda','Skikda',i1: 750, i2: 450,['Skikda'],
       {
             'Skikda': 'A coté de El NASR Mosque',
       },
@@ -767,7 +766,7 @@ List<wilaya> LWS=[
         "Zitouna"
       ]
   ),
-  wilaya(20,'Saïda',i1: 800, i2: 500,['Saida'],
+  wilaya(20,'Saïda','Saida',i1: 800, i2: 500,['Saida'],
       {
             'Saida': 'Saide centre ville, deriere cinema El Fath',
       },
@@ -790,7 +789,7 @@ List<wilaya> LWS=[
         "Youb"
       ]
   ),
-  wilaya(40,'Khenchela',i1: 800, i2: 500,['Khenchela'],
+  wilaya(40,'Khenchela','Khenchela',i1: 800, i2: 500,['Khenchela'],
       {
             'Khenchela': 'Rue 1er Novembre, près de Sonelgaz et du Jardin du 1er Novembre',
       },
@@ -818,7 +817,7 @@ List<wilaya> LWS=[
         "Yabous"
       ]
   ),
-  wilaya(23,'Annaba',i1: 750, i2: 450,['Annaba'],
+  wilaya(23,'Annaba','Annaba',i1: 750, i2: 450,['Annaba'],
       {
             'Annaba': 'Cite oued edheb 2 bâtiment C2 en face CASNOS',
       },
@@ -837,7 +836,7 @@ List<wilaya> LWS=[
         "Treat"
       ]
   ),
-  wilaya(41,'Souk Ahras',i1: 800, i2: 500,['Souk Ahras'],
+  wilaya(41,'Souk Ahras','Souk Ahras',i1: 800, i2: 500,['Souk Ahras'],
       {
             'Souk Ahras': 'Nahdj Slimane Amirat',
       },
@@ -870,9 +869,9 @@ List<wilaya> LWS=[
         "Zouabi"
       ]
   ),
-  wilaya(24,'Guelma',i1: 750, i2: 450,['Guelma'],
+  wilaya(24,'Guelma','Guelma',i1: 750, i2: 450,['Guelma'],
       {
-            'Guelma': 'Fardas Hussein n°06, Magasin n°01, Commune de Guelma',
+            'Guelma': 'Fardas Hussein n°06, Magasin n°01',
       },
       [
         "Ain Ben Beida",
@@ -911,7 +910,7 @@ List<wilaya> LWS=[
         "Tamlouka"
       ]
   ),
-  wilaya(17,'Djelfa',i1: 850, i2: 550,['Djelfa'],
+  wilaya(17,'Djelfa','Djelfa',i1: 850, i2: 550,['Djelfa'],
       {
             'Djelfa': 'Quartier Ben Tayba, rue Boukhalifa, près de la station-service',
       },
@@ -954,7 +953,7 @@ List<wilaya> LWS=[
         "Zaccar"
       ]
   ),
-  wilaya(46,'Aïn Témouchent',i1: 750, i2: 450,['Ain Temouchent'],
+  wilaya(46,'Aïn Témouchent','Ain Temouchent',i1: 750, i2: 450,['Ain Temouchent'],
       s0: 'MED',
       {
             'Ain Temouchent': 'Cité El Zitoun',
@@ -989,9 +988,9 @@ List<wilaya> LWS=[
             "Tamzoura",
             "Terga"
       ]  ),
-  wilaya(7,'Biskra',i1: 900, i2: 550,['Biskra'],s0: 'MED',
+  wilaya(7,'Biskra','Biskra',i1: 900, i2: 550,['Biskra'],s0: 'MED',
       {
-            'Biskra': 'Cité Zarzour, Côté droit, Biskra',
+            'Biskra': 'Cité Zarzour, Côté droit',
       },
       [
             "Ain Naga",
@@ -1022,7 +1021,7 @@ List<wilaya> LWS=[
             "Tolga",
             "Zeribet El Oued"
       ]  ),
-  wilaya(32,'El Bayadh',i1: 1000, i2: 650,['El Bayadh'],
+  wilaya(32,'El Bayadh','El Bayadh',i1: 1000, i2: 650,['El Bayadh'],
       {
             'El Bayadh': "A coté de l'Hotel Benkayoum",
       },
@@ -1051,7 +1050,7 @@ List<wilaya> LWS=[
         "Tousmouline"
       ]
   ),
-  wilaya(12,'Tébessa',i1: 850, i2: 550,['Tebessa'],
+  wilaya(12,'Tébessa','Tebessa',i1: 850, i2: 550,['Tebessa'],
       {
             'Tebessa': 'Skanska, derrière la mosquée Cheikh Larbi Tébessi',
       },
@@ -1086,7 +1085,7 @@ List<wilaya> LWS=[
             "Telidjen"
       ]
         ),
-  wilaya(3,'Laghouat',i1: 900, i2: 600,['Laghouat'],
+  wilaya(3,'Laghouat','Laghouat',i1: 900, i2: 600,['Laghouat'],
       {
             'Laghouat': "Cite mkam route nationale n' 1on fasse café mon ami",
       },
@@ -1117,9 +1116,9 @@ List<wilaya> LWS=[
         "Taouiala"
       ]
   ),
-  wilaya(39,'El Oued',i1: 1000, i2: 650,['El Oued'],s0: 'MED',
+  wilaya(39,'El Oued','El Oued',i1: 1000, i2: 650,['El Oued'],s0: 'MED',
       {
-            'El Oued': 'Cité El Rimal 2, Route du Centre Financier, El Oued',
+            'El Oued': 'Cité El Rimal 2, Route du Centre Financier',
       },
       [
             "Bayadha",
@@ -1146,9 +1145,9 @@ List<wilaya> LWS=[
             "Trifaoui"
       ]
   ),
-  wilaya(30,'Ouargla',i1: 1000, i2: 650,['Ouargla'],s0: 'MED',
+  wilaya(30,'Ouargla','Ouargla',i1: 1000, i2: 650,['Ouargla'],s0: 'MED',
       {
-            'Ouargla': 'Cité El Chérifa, Ouargla',
+            'Ouargla': 'Cité El Chérifa',
       },
       [
             "Ain Beida",
@@ -1160,7 +1159,7 @@ List<wilaya> LWS=[
             "Rouissat",
             "Sidi Khouiled"
       ]  ),
-  wilaya(57,"El M'Ghair",i1: 950, i2: 650,["El M'ghair"],s0: 'MED',
+  wilaya(57,"El M'Ghair","El M'ghair",i1: 950, i2: 650,["El M'ghair"],s0: 'MED',
       {
             "El M'ghair": "Cité 360 Logements, en face de l'Agence de Voyages Ben Ali",
       },
@@ -1174,9 +1173,9 @@ List<wilaya> LWS=[
             "Still",
             "Tenedla"
       ]  ),
-  wilaya(44,'Aïn Defla',i1: 650, i2: 400,['Ain Defla'],
+  wilaya(44,'Aïn Defla','Ain Defla',i1: 650, i2: 400,['Ain Defla'],
       {
-            'Ain Defla': 'Cartier kadour Al arbie ain Dafla',
+            'Ain Defla': 'Cartier kadour Al arbie',
       },
       [
         "Ain Benian",
@@ -1217,9 +1216,9 @@ List<wilaya> LWS=[
         "Zeddine"
       ]
   ),
-  wilaya(35,'Boumerdès',i1: 700, i2: 450,['Boumerdes'],
+  wilaya(35,'Boumerdès','Boumerdes',i1: 700, i2: 450,['Boumerdes'],
       {
-            'Boumerdes': 'La coopérative immobilier Alwafaa bâtiment 49 Boumerdes',
+            'Boumerdes': 'La coopérative immobilier Alwafaa bâtiment 49',
       },
       [
         "Afir",
@@ -1256,7 +1255,7 @@ List<wilaya> LWS=[
         "Zemmouri"
       ]
   ),
-  wilaya(48,'Relizane',i1: 700, i2: 400,['Relizane'],
+  wilaya(48,'Relizane','Relizane',i1: 700, i2: 400,['Relizane'],
       {
             'Relizane': 'Cité zitoun a côté de cnas',
       },
@@ -1301,10 +1300,10 @@ List<wilaya> LWS=[
         "Zemmoura"
       ]
   ),
-  wilaya(10,'Bouira',i1: 700, i2: 450,['Bouira','Sour El Ghozlane'],
+  wilaya(10,'Bouira','Bouira',i1: 700, i2: 450,['Bouira','Sour El Ghozlane'],
       {
-            'Bouira': 'Rue amar khodja 72 bouira',
-            'Sour El Ghozlane': 'Bouchlaghem, Sour El Ghozlane',
+            'Bouira': 'Rue amar khodja 72',
+            'Sour El Ghozlane': 'Bouchlaghem',
       },
       [
         "Aghbalou",
@@ -1354,10 +1353,10 @@ List<wilaya> LWS=[
         "Z'barbar"
       ]
   ),
-  wilaya(6,'Béjaïa',i1: 750, i2: 450,['Akbou','Bejaia','Kherrata'],
+  wilaya(6,'Béjaïa','Bejaia',i1: 750, i2: 450,['Akbou','Bejaia','Kherrata'],
       {
             'Akbou': 'À côté de Stade Scolaire',
-            'Bejaia': 'Cité kherroubi derrière la gare routière de Béjaïa',
+            'Bejaia': 'Cité kherroubi derrière la gare routière',
             'Kherrata': 'Fin du pont Laouadher, à côté du cabinet Mansouri',
       },
       [
@@ -1415,9 +1414,9 @@ List<wilaya> LWS=[
         "Toudja"
       ]
   ),
-  wilaya(38,'Tissemsilt ',i1: 800, i2: 500,['Tissemsilt '],
+  wilaya(38,'Tissemsilt','Tissemsilt',i1: 800, i2: 500,['Tissemsilt'],
       {
-            'Tissemsilt': 'En face rond point ben lachehab, Tissemsilt',
+            'Tissemsilt': 'En face rond point ben lachehab',
       },
       [
         "Ammari",
@@ -1444,7 +1443,7 @@ List<wilaya> LWS=[
         "Youssoufia"
       ]
   ),
-  wilaya(28,"M'Sila",i1: 800, i2: 500,["Berhoum","M'sila"],
+  wilaya(28,"M'Sila","M'sila",i1: 800, i2: 500,["Berhoum","M'sila"],
       {
             'Berhoum': 'A coté de CEM Flak Allaoua',
             "M'sila": 'Quartier 500 logements, en face du lycée Zaghba Draji',
@@ -1499,7 +1498,7 @@ List<wilaya> LWS=[
         "Zarzour"
       ]
   ),
-  wilaya(29,'Mascara',i1: 800, i2: 500,['Mascara'],
+  wilaya(29,'Mascara','Mascara',i1: 800, i2: 500,['Mascara'],
       {
             'Mascara': 'Rue bouremla habib',
       },
@@ -1553,7 +1552,7 @@ List<wilaya> LWS=[
         "Zelamta"
       ]
   ),
-  wilaya(5,'Batna',i1: 800, i2: 450,['Batna'],
+  wilaya(5,'Batna','Batna',i1: 800, i2: 450,['Batna'],
       {
             'Batna': 'À côté de la grande porte de l’Université Hadj Lakhdar',
       },
@@ -1621,7 +1620,7 @@ List<wilaya> LWS=[
         "Zanet El Beida"
       ]
   ),
-  wilaya(36,'El Tarf',i1: 850, i2: 550,['El Tarf'],
+  wilaya(36,'El Tarf','El Tarf',i1: 850, i2: 550,['El Tarf'],
       {
             'El Tarf': 'Quartier riche à côté de notaire Achouri',
       },
@@ -1652,9 +1651,9 @@ List<wilaya> LWS=[
         "Zitouna"
       ]
   ),
-  wilaya(55,'Touggourt',i1: 1000, i2: 650,['Touggourt'],
+  wilaya(55,'Touggourt','Touggourt',i1: 1000, i2: 650,['Touggourt'],
       {
-            'Touggourt': "En face de L'APC Touggourt",
+            'Touggourt': "En face de L'APC",
       },
       [
         "Benaceur",
@@ -1672,7 +1671,7 @@ List<wilaya> LWS=[
         "Zaouia El Abidia"
       ]
   ),
-  wilaya(45,'Naâma',i1: 1000, i2: 650,['Mecheria'],
+  wilaya(45,'Naâma','Naama',i1: 1000, i2: 650,['Mecheria'],
       {
             'Mecheria': 'Rue ben chikh mohammed centre ville',
       },
@@ -1691,7 +1690,7 @@ List<wilaya> LWS=[
         "Tiout"
       ]
   ),
-  wilaya(8,'Béchar',i1: 1200, i2: 800,['Bechar'],
+  wilaya(8,'Béchar','Bechar',i1: 1200, i2: 800,['Bechar'],
       {
             'Bechar': 'A coté de la Bibliothèque centrale',
       },

@@ -1,6 +1,7 @@
 class wilaya {
   String s0;
   String s1;
+  String s2;
   int i0;
   int i1,i2;
   List<String> LS1;
@@ -10,13 +11,14 @@ class wilaya {
   wilaya(
     this.i0,
     this.s1,
+    this.s2,
       this.LS1,
       this.LM1,
       this.LS2,
       {
         this.s0='SWIFT',
         this.i1=0,
-      this.i2=0,
+       this.i2=0,
     }
   );
 }
