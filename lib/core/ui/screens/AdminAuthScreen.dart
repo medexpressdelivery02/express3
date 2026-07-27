@@ -101,6 +101,13 @@ class _AdminAuthScreen extends State<AdminAuthScreen> {
             if(password=='107') Navigator.of(context).popAndPushNamed('/as');
 
           });
+        } else if(password=='207') {
+
+          Future.delayed(const Duration(milliseconds: 750), () {
+
+            if(password=='207') Navigator.of(context).popAndPushNamed('/dod');
+
+          });
         }
       },
       child: Container(

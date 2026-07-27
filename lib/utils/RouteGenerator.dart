@@ -1,6 +1,7 @@
 import 'package:express3/core/ui/screens/AddScreen.dart';
 import 'package:express3/core/ui/screens/AddSenderScreen.dart';
 import 'package:express3/core/ui/screens/AdminAuthScreen.dart';
+import 'package:express3/core/ui/screens/DeleteOldDataScreen.dart';
 import 'package:express3/core/ui/screens/LoginScreen.dart';
 import 'package:express3/core/ui/screens/MainScreen.dart';
 import 'package:express3/core/ui/screens/PriceScreen.dart';
@@ -47,6 +48,10 @@ class RouteGenerator {
       case '/as': {
 
         return func(AddSenderScreen());
+      }
+      case '/dod': {
+
+        return func(DeleteOldDataScreen());
       }
       default: { ///main
 
