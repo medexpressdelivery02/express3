@@ -1,10 +1,12 @@
 import 'package:express3/core/models/wilaya.dart';
 
 List<wilaya> LWS=[
-  wilaya(16,'Alger','Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia'],
+  wilaya(16,'Alger','Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia','Birkhadem','Cheraga'],
       {
         'Bab Ezzouar': 'AADL, Les bananiers',
         'Mohammadia': 'Mohammadia',
+        'Birkhadem': 'Ain malha',
+        'Cheraga': 'Cheraga',
       },
       [
         "Ain Benian",
@@ -292,9 +294,10 @@ List<wilaya> LWS=[
         "Zmalet El Emir Abdelkade"
       ]
   ),
-  wilaya(31,'Oran','Oran',i1: 750, i2: 450,['Bir El Djir'],
+  wilaya(31,'Oran','Oran',i1: 750, i2: 450,['Bir El Djir','Oran'],
       {
             'Bir El Djir': 'Rue colonel Atman hai khmisti',
+            'Oran': 'Maraval',
       },
       [
         "Ain Biya",
@@ -628,10 +631,11 @@ List<wilaya> LWS=[
         "Tizi N'bechar"
       ]
   ),
-  wilaya(18,'Jijel','Jijel',i1: 750, i2: 450,['Djemaa Beni Habibi','Jijel'],
+  wilaya(18,'Jijel','Jijel',i1: 750, i2: 450,['Djemaa Beni Habibi','Jijel','El Milia'],
       {
             'Djemaa Beni Habibi': 'RUE GHARBI SALAH',
             'Jijel': 'Rue chrikan Ali',
+            'El Milia': 'El Milia',
       },
       [
         "Bordj Tahar",
@@ -1726,6 +1730,23 @@ List<wilaya> LWS=[
         "Naama",
         "Sfissifa",
         "Tiout"
+      ]
+  ),
+  wilaya(47,'Ghardaïa','Ghardaia',i1: 1100, i2: 700,['Ghardaia'],
+      {
+        'Ghardaia': "Elhadj Massoud à côté de Branche municipale Rue Didouche Mourad",
+      },
+      [
+        "Berriane",
+        "Bounoura",
+        "Dhayet Bendhahoua",
+        "El Atteuf",
+        "El Guerrara",
+        "Ghardaia",
+        "Mansoura",
+        "Metlili",
+        "Sebseb",
+        "Zelfana"
       ]
   ),
 ];
