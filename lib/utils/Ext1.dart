@@ -45,9 +45,16 @@ String getPerfectSt(String? s1,String s2) {
   return s1??s2.toString();
 }
 
-List<wilaya> LW() {
-  LWS.sort((a,b) {
-    return a.s1.compareTo(b.s1);
-  });
-  return LWS;
+List<wilaya> LW({bool hasChlef=false}) {
+
+  if(hasChlef) {
+    return [Chlef];
+  } else {
+
+    LWS.sort((a,b) {
+      return a.s1.compareTo(b.s1);
+    });
+    return LWS;
+  }
 }
+

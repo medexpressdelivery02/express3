@@ -30,6 +30,7 @@ class _AddScreen extends State<AddScreen> {
   TextEditingController tec11=TextEditingController();
   wilaya? wc;
   bool isL=false;
+  bool fromLocal=false;
 
   @override
   void initState() {
@@ -55,6 +56,33 @@ class _AddScreen extends State<AddScreen> {
         }catch(e) { }
       }
     });
+
+    tec4.addListener(() {
+
+      setState(() {
+
+      });
+    });
+    tec8.addListener(() {
+
+      setState(() {
+
+      });
+    });
+    tec11.addListener(() {
+
+      setState(() {
+
+      });
+    });
+
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    var arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    fromLocal=arguments?['fromLocal']??false;
   }
 
   @override
@@ -163,11 +191,22 @@ class _AddScreen extends State<AddScreen> {
                                       tec10.text='';
                                       tec11.text='';
                                       Navigator.pop(context);
+
+                                      setState(() {
+
+                                      });
                                     }),
                                   );
                                 }
                               );
                           },
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec1.text.isEmpty?kc1:Colors.transparent,
                         ),
 
                         const SizedBox(height: 12,),
@@ -254,7 +293,7 @@ class _AddScreen extends State<AddScreen> {
                               enabledBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               disabledBorder: InputBorder.none,
-                              hintText: "Déstinataire * ",
+                              hintText: "Déstinataire (Client)",
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                           ),
@@ -288,6 +327,13 @@ class _AddScreen extends State<AddScreen> {
                           ),
                         ),
 
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec4.text.isEmpty?kc1:Colors.transparent,
+                        ),
+
                         const SizedBox(height: 12,),
 
                         Stack(
@@ -311,6 +357,10 @@ class _AddScreen extends State<AddScreen> {
                                           tec10.text='';
                                           tec11.text='';
                                           Navigator.pop(context);
+
+                                          setState(() {
+
+                                          });
                                         }),
                                       );
                                     }
@@ -352,6 +402,14 @@ class _AddScreen extends State<AddScreen> {
                           ],
                         ),
 
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec5.text.isEmpty?kc1:Colors.transparent,
+                        ),
+
+
                         const SizedBox(height: 12,),
 
                         Stack(
@@ -375,6 +433,10 @@ class _AddScreen extends State<AddScreen> {
                                             tec10.text=(tec1.text=='Stop Desk'?wc!.i2:wc!.i1).toString();
                                             tec11.text='';
                                             Navigator.pop(context);
+
+                                            setState(() {
+
+                                            });
                                           }, isCommune: true),
                                         );
                                       }
@@ -431,6 +493,13 @@ class _AddScreen extends State<AddScreen> {
                           ],
                         ),
 
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec6.text.isEmpty?kc1:Colors.transparent,
+                        ),
+
                         const SizedBox(height: 12,),
                         Container(
                           height: 48,
@@ -451,7 +520,7 @@ class _AddScreen extends State<AddScreen> {
                               enabledBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               disabledBorder: InputBorder.none,
-                              hintText: "Adresse *",
+                              hintText: "Adresse",
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                           ),
@@ -482,6 +551,13 @@ class _AddScreen extends State<AddScreen> {
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                           ),
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec8.text.isEmpty?kc1:Colors.transparent,
                         ),
 
                         const SizedBox(height: 12,),
@@ -566,6 +642,13 @@ class _AddScreen extends State<AddScreen> {
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                           ),
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          height: 2,
+                          width: double.infinity,
+                          color: tec11.text.isEmpty?kc1:Colors.transparent,
                         ),
 
                         const SizedBox(height: 12,),
@@ -662,7 +745,7 @@ class _AddScreen extends State<AddScreen> {
       );
     } else {
 
-      if(tec1.text.isNotEmpty&&tec2.text.isNotEmpty&&tec3.text.isNotEmpty&&tec4.text.isNotEmpty&&tec5.text.isNotEmpty&&tec6.text.isNotEmpty&&tec7.text.isNotEmpty&&tec8.text.isNotEmpty&&tec11.text.isNotEmpty) {
+      if(tec1.text.isNotEmpty&&tec2.text.isNotEmpty&&tec4.text.isNotEmpty&&tec5.text.isNotEmpty&&tec6.text.isNotEmpty&&tec8.text.isNotEmpty&&tec11.text.isNotEmpty) {
 
         setState(() {
           isL=true;
@@ -674,139 +757,146 @@ class _AddScreen extends State<AddScreen> {
           jj=(double.parse(tec9.text.toString().replaceAll(',', '.')).ceil());
         }catch(e) { }
 
-        try {
+        if(fromLocal) {
 
-          Response<dynamic> res=await Dio().post('${wc!.s0=='SWIFT'?ks3:ks5}/api/v1/create/order',
-              options: Options(
-                  headers: {
-                    'Authorization': 'Bearer ${wc!.s0=='SWIFT'?ks4:ks6}'
-                  }
-              ),
-              data: {
-                "reference": '${prefs!.getString('sub_name')} - ${int.parse(tec11.text.toString())-int.parse(tec10.text.toString())}',
-                "nom_client": tec3.text.toString(),
-                "telephone": num,
-                "adresse": tec7.text.toString(),
-                "produit": tec8.text.toString(),
-                "code_wilaya": wc!.i0,
-                "commune": tec6.text.toString(),
-                "montant": tec11.text.toString(),
-                "weight": jj.toString(),
-                "fragile": 1,
-                "type": tec2.text.toString()=="Livraison"?1:2,
-                "stop_desk": tec1.text.toString()!='Stop Desk'?0:1,
-              }
-          );
-          var t=res.data['tracking'];
+          //TODO
 
-          setState(() {
-            isL=false;
-          });
+        } else {
 
           try {
 
-            FirebaseFirestore.instance
-                .collection(prefs!.getString('phone').toString()).doc(t)
-                .set({
-              'date':DateTime.now()
+            Response<dynamic> res=await Dio().post('${wc!.s0=='SWIFT'?ks3:ks5}/api/v1/create/order',
+                options: Options(
+                    headers: {
+                      'Authorization': 'Bearer ${wc!.s0=='SWIFT'?ks4:ks6}'
+                    }
+                ),
+                data: {
+                  "reference": '${prefs!.getString('sub_name')} - ${int.parse(tec11.text.toString())-int.parse(tec10.text.toString())}',
+                  "nom_client": tec3.text.toString()==''?'Client':tec3.text.toString(),
+                  "telephone": num,
+                  "adresse": tec7.text.toString()==''?tec6.text.toString():tec7.text.toString(),
+                  "produit": tec8.text.toString(),
+                  "code_wilaya": wc!.i0,
+                  "commune": tec6.text.toString(),
+                  "montant": tec11.text.toString(),
+                  "weight": jj.toString(),
+                  "fragile": 1,
+                  "type": tec2.text.toString()=="Livraison"?1:2,
+                  "stop_desk": tec1.text.toString()!='Stop Desk'?0:1,
+                }
+            );
+            var t=res.data['tracking'];
+
+            setState(() {
+              isL=false;
             });
-          }catch(e) { }
 
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                contentPadding: EdgeInsetsGeometry.all(16),
-                backgroundColor: Colors.white,
-                content: SizedBox(
-                  width: double.maxFinite,
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      Center(child: Text('Votre colis a bien été ajouté',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+            try {
 
-                      SizedBox(height: 12,),
+              FirebaseFirestore.instance
+                  .collection(prefs!.getString('phone').toString()).doc(t)
+                  .set({
+                'date':DateTime.now()
+              });
+            }catch(e) { }
 
-                      Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: kc1,
-                            ),
-                            child: Text(
-                              'Ok', style: TextStyle(
-                                color: kc2,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600
-                            ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ).then((r) {
-            Navigator.of(context).popAndPushNamed('/add');
-          });
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  contentPadding: EdgeInsetsGeometry.all(16),
+                  backgroundColor: Colors.white,
+                  content: SizedBox(
+                    width: double.maxFinite,
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Center(child: Text('Votre colis a bien été ajouté',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
 
-        } catch(e) {
+                        SizedBox(height: 12,),
 
-          setState(() {
-            isL=false;
-          });
-
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                contentPadding: EdgeInsetsGeometry.all(16),
-                backgroundColor: Colors.white,
-                content: SizedBox(
-                  width: double.maxFinite,
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      Center(child: Text('Erreur réessayer svp',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
-
-                      SizedBox(height: 12,),
-
-                      Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: kc1,
-                            ),
-                            child: Text(
-                              'Ok', style: TextStyle(
-                                color: kc2,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600
-                            ),
+                        Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: kc1,
+                              ),
+                              child: Text(
+                                'Ok', style: TextStyle(
+                                  color: kc2,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600
+                              ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-          ).then((r) {
-            Navigator.of(context).popAndPushNamed('/add');
-          });
+                );
+              },
+            ).then((r) {
+              Navigator.of(context).popAndPushNamed('/add');
+            });
+
+          } catch(e) {
+
+            setState(() {
+              isL=false;
+            });
+
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  contentPadding: EdgeInsetsGeometry.all(16),
+                  backgroundColor: Colors.white,
+                  content: SizedBox(
+                    width: double.maxFinite,
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Center(child: Text('Erreur réessayer svp',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+
+                        SizedBox(height: 12,),
+
+                        Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: kc1,
+                              ),
+                              child: Text(
+                                'Ok', style: TextStyle(
+                                  color: kc2,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600
+                              ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ).then((r) {
+              Navigator.of(context).popAndPushNamed('/add');
+            });
+          }
         }
       } else {
         Fluttertoast.showToast(

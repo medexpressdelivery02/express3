@@ -12,6 +12,7 @@ class PriceScreen extends StatefulWidget {
 
 class _PriceScreen extends State<PriceScreen> {
   TextEditingController tec1=TextEditingController();
+  bool fromLocal=false;
 
   @override
   void initState() {
@@ -21,6 +22,13 @@ class _PriceScreen extends State<PriceScreen> {
 
       setState(() { });
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    var arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    fromLocal=arguments?['fromLocal']??false;
   }
 
   @override
@@ -80,7 +88,7 @@ class _PriceScreen extends State<PriceScreen> {
                                 shrinkWrap: true,
                                 children: [
                                   Text('Frais poids',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w800),),
-                                  Text('Pour chaque : 50 DA',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                                  Text('Surfacturation : 50 DA',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
                                   Text('Pour chaque : 1 KG',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
                                   Text('Additionel à partir de : 5 KG',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
 
@@ -169,7 +177,7 @@ class _PriceScreen extends State<PriceScreen> {
 
                   SizedBox(height: 6,),
 
-                  ...LW().where((e) =>
+                  ...LW(hasChlef: fromLocal).where((e) =>
                       tec1.text.isEmpty||
                       e.i0.toString().contains(tec1.text)||
                       e.s1.toLowerCase().contains(tec1.text.toString().toLowerCase())
@@ -236,18 +244,3 @@ class _PriceScreen extends State<PriceScreen> {
     );
   }
 }
-
-/*
-                  SizedBox(
-                    height: 2500,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-
-                        Image.asset(
-                            width: 1000,
-                            '${ks2}price.png'),
-                      ],
-                    ),
-                  ),
- */

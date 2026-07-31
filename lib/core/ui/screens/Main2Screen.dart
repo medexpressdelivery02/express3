@@ -2,24 +2,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:express3/core/models/order_payload.dart';
 import 'package:express3/utils/Ext1.dart';
+import 'package:express3/utils/Ext2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MainScreen extends StatefulWidget {
+class Main2Screen extends StatefulWidget {
 
-  const MainScreen({super.key});
+  const Main2Screen({super.key});
 
   @override
-  State<StatefulWidget> createState() => _MainScreen();
+  State<StatefulWidget> createState() => _Main2Screen();
 }
 
-class _MainScreen extends State<MainScreen> {
+class _Main2Screen extends State<Main2Screen> {
   bool isL=true;
   List<OrderData> ld=[];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String strt=''; //TODO
 
   @override
   void initState() {
@@ -27,72 +29,10 @@ class _MainScreen extends State<MainScreen> {
     get();
   }
 
-  Future<List<String>> getSt() async {
-    String st1='';
-    String st2='';
-
-    try {
-
-      var nv=await FirebaseFirestore.instance.collection(prefs!.getString('phone').toString()).get();
-
-      for (var d in nv.docs) {
-
-        if(d.id.startsWith('ECT')) {
-
-          if(!st1.contains(d.id)) st1='${st1}trackings[]=${d.id}&';
-        } else {
-          if(!st2.contains(d.id)) st2='${st2}trackings[]=${d.id}&';
-        }
-      }
-
-    }catch(e) { }
-    return [
-      st1,st2
-    ];
-  }
-
   void get() async {
-    var f=await getSt();
-    String st1=f[0];
-    String st2=f[1];
 
-    if(st1!='') {
+    //TODO
 
-      try {
-
-        var res=await Dio().get('$ks3/api/v1/get/trackings/info?$st1',
-          options: Options(
-              headers: { 'Authorization': 'Bearer $ks4' }
-          ),
-        );
-        OrderPayload payload = OrderPayload.fromJson(res.data);
-        ld.addAll(payload.orders);
-      }catch(e){ }
-    }
-
-    if(st2!='') {
-
-      try {
-
-        var res=await Dio().get('$ks5/api/v1/get/trackings/info?$st2',
-          options: Options(
-              headers: { 'Authorization': 'Bearer $ks6' }
-          ),
-        );
-        OrderPayload payload = OrderPayload.fromJson(res.data);
-        ld.addAll(payload.orders);
-      }catch(e){ }
-    }
-
-    ld.sort((a,b) {
-      return a.orderInfo!.created_at!.compareTo(b.orderInfo!.created_at!);
-    });
-
-    ld=ld.reversed.toList();
-
-    setState(() {
-      isL=false;
-    });
   }
 
   Widget getDrawer() {
@@ -132,7 +72,7 @@ class _MainScreen extends State<MainScreen> {
                         _scaffoldKey.currentState?.closeDrawer();
 
                         Navigator.of(context).pushNamed('/price',arguments: {
-                          'fromLocal':false
+                          'fromLocal':true
                         });
                       },
                       child: Container(
@@ -280,47 +220,6 @@ class _MainScreen extends State<MainScreen> {
                   onTap: () {
 
                     setState(() {
-                      cp=1;
-                    });
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Vers Wilaya', style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600
-                      ),
-                      ),
-                      if(jld(1)!=0) Container(
-                        margin: EdgeInsets.only(left: 6),
-                        color: Colors.red,
-                        child: Text(
-                          ' ${jld(1)} ', style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w900
-                        ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                Container(
-                  height: 3,
-                  width: 123,
-                  color: kc1,
-                ),
-
-                Spacer(flex: 1,),
-
-                GestureDetector(
-                  onTap: () {
-
-                    setState(() {
                       cp=2;
                     });
                     _scaffoldKey.currentState?.closeDrawer();
@@ -441,7 +340,8 @@ class _MainScreen extends State<MainScreen> {
                 Spacer(flex: 8,),
 
               ],
-            ))
+            )),
+
           ],
         ),
       ),
@@ -519,7 +419,7 @@ class _MainScreen extends State<MainScreen> {
                           GestureDetector(
                             onTap: () {
                               Navigator.of(context).pushNamed('/add',arguments: {
-                                'fromLocal':false
+                                'fromLocal':true
                               });
                             },
                             child: Container(
@@ -533,7 +433,7 @@ class _MainScreen extends State<MainScreen> {
 
                           GestureDetector(
                             onTap: () async {
-                              Navigator.of(context).pushReplacementNamed('/main');
+                              Navigator.of(context).pushReplacementNamed('/main2');
                             },
                             child: Container(
                               width: 32,height: 32,
@@ -573,63 +473,66 @@ class _MainScreen extends State<MainScreen> {
                   ],
                 ),
               ),
+
               Positioned(bottom: 0,left: 0,right: 0,child: Container(
-                height: 44,
-                margin: EdgeInsets.symmetric(vertical: 8,horizontal: 24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withValues(alpha: 0.08),
-                      spreadRadius: 1,
-                      blurRadius: 7,
-                      offset: Offset(0, 0), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-
-                    SizedBox(width: 16,),
-
-                    Expanded(child: Center(
-                      child: Text('Hors-Wilaya',style: TextStyle(
-                          color: kc1,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500
-                      ),),
-                    )),
-
-                    Center(
-                      child: Container(
-                        width: 1,
-                        height: 24,
-                        color: Colors.grey.withOpacity(0.25),
+                  height: 44,
+                  margin: EdgeInsets.symmetric(vertical: 8,horizontal: 24),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withValues(alpha: 0.08),
+                        spreadRadius: 1,
+                        blurRadius: 7,
+                        offset: Offset(0, 0), // changes position of shadow
                       ),
-                    ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
 
-                    Expanded(child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushReplacementNamed('/main2');
-                      },
-                      child: Container(
-                        color: Colors.transparent,
-                        child: Center(
-                          child: Text('Locale',style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500
-                          ),),
+                      SizedBox(width: 16,),
+
+                      Expanded(child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed('/main');
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Center(
+                            child: Text('Hors-Wilaya',style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                            ),),
+                          ),
+                        ),
+                      )),
+
+                      Center(
+                        child: Container(
+                          width: 1,
+                          height: 24,
+                          color: Colors.grey.withOpacity(0.25),
                         ),
                       ),
-                    )),
 
-                    SizedBox(width: 16,),
+                      Expanded(child: Center(
+                        child: Text('Locale',style: TextStyle(
+                            color: kc1,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500
+                        ),),
+                      )),
 
-                  ],
+                      SizedBox(width: 16,),
+
+                    ],
+                  ),
                 ),
-              ),),
+              ),
+
             ],
           ),
         ),
@@ -680,7 +583,7 @@ class _MainScreen extends State<MainScreen> {
     return j;
   }
 
-  Widget item(OrderData d,) {
+  Widget item(OrderData d) {
     var u='';
     var b='';
     Widget k=SizedBox();

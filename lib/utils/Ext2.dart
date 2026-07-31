@@ -1,5 +1,47 @@
 import 'package:express3/core/models/wilaya.dart';
 
+wilaya Chlef=wilaya(2,'Chlef','Chlef',i1: 500, i2: 250,['Chlef'],
+    {
+      'Chlef': 'Quartier Ben Souna, derrière le centre de services Mobilis',
+    },
+    [
+      "Abou El Hassan",
+      "Ain Merane",
+      "Benairia",
+      "Beni Bouateb",
+      "Beni Haoua",
+      "Beni Rached",
+      "Boukadir",
+      "Bouzeghaia",
+      "Breira",
+      "Chettia",
+      "Chlef",
+      "Dahra",
+      "El Hadjadj",
+      "El Karimia",
+      "El Marsa",
+      "Harchoun",
+      "Harenfa",
+      "Labiod Medjadja",
+      "Moussadek",
+      "Oued Fodda",
+      "Oued Goussine",
+      "Oued Sly",
+      "Ouled Abbes",
+      "Ouled Ben Abdelkader",
+      "Ouled Fares",
+      "Oum Drou",
+      "Sendjas",
+      "Sidi Abderrahmane",
+      "Sidi Akkacha",
+      "Sobha",
+      "Tadjena",
+      "Talassa",
+      "Taougrit",
+      "Tenes",
+      "Zeboudja"
+    ]);
+
 List<wilaya> LWS=[
   wilaya(16,'Alger','Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia','Birkhadem','Cheraga'],
       {
