@@ -347,7 +347,7 @@ class _AddScreen extends State<AddScreen> {
                                       return AlertDialog(
                                         contentPadding: EdgeInsetsGeometry.all(16),
                                         backgroundColor: Colors.white,
-                                        content: setupAlertDialog(LW(), (e) {
+                                        content: setupAlertDialog(fromLocal?[Chlef]:LW(), (e) {
                                           tec5.text=e.s1;
                                           wc=e;
                                           tec6.text='';
@@ -759,7 +759,73 @@ class _AddScreen extends State<AddScreen> {
 
         if(fromLocal) {
 
-          //TODO
+          FirebaseFirestore.instance.collection('${prefs!.getString('phone')}-ch').doc(Uuid().v1()).set({
+            "reference": '${prefs!.getString('sub_name')} - ${int.parse(tec11.text.toString())-int.parse(tec10.text.toString())}',
+            "nom_client": tec3.text.toString()==''?'Client':tec3.text.toString(),
+            "telephone": num,
+            "adresse": tec7.text.toString()==''?tec6.text.toString():tec7.text.toString(),
+            "produit": tec8.text.toString(),
+            "code_wilaya": wc!.i0,
+            "commune": tec6.text.toString(),
+            "montant": tec11.text.toString(),
+            "weight": jj.toString(),
+            "fragile": 1,
+            "type": tec2.text.toString()=="Livraison"?1:2,
+            "stop_desk": tec1.text.toString()!='Stop Desk'?0:1,
+            "status": '',
+            "deliveryAttempts": '',
+          });
+
+          setState(() {
+            isL=false;
+          });
+
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                contentPadding: EdgeInsetsGeometry.all(16),
+                backgroundColor: Colors.white,
+                content: SizedBox(
+                  width: double.maxFinite,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Center(child: Text('Votre colis a bien été ajouté',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+
+                      SizedBox(height: 12,),
+
+                      Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: kc1,
+                            ),
+                            child: Text(
+                              'Ok', style: TextStyle(
+                                color: kc2,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600
+                            ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ).then((r) {
+            Navigator.of(context).popAndPushNamed('/add',arguments: {
+              'fromLocal':true
+            });
+          });
 
         } else {
 

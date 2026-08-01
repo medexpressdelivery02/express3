@@ -21,7 +21,6 @@ class _Main2Screen extends State<Main2Screen> {
   bool isL=true;
   List<OrderData> ld=[];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String strt=''; //TODO
 
   @override
   void initState() {
