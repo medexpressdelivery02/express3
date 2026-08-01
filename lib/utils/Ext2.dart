@@ -999,7 +999,7 @@ List<wilaya> LWS=[
         "Zaccar"
       ]
   ),
-  wilaya(46,'Aïn Témouchent','Ain Temouchent',i1: 750, i2: 450,['Ain Temouchent'],
+  wilaya(46,'Aïn Témouchent','Ain Temouchent',i1: 750, i2: 500,['Ain Temouchent'],
       {
             'Ain Temouchent': '17 place liberté rue Marni sandid fatma',
       },
@@ -1339,7 +1339,7 @@ List<wilaya> LWS=[
         "Zemmouri"
       ]
   ),
-  wilaya(48,'Relizane','Relizane',i1: 700, i2: 450,['Relizane'],
+  wilaya(48,'Relizane','Relizane',i1: 700, i2: 400,['Relizane'],
       {
             'Relizane': 'Cité zitoun a côté de cnas',
       },
