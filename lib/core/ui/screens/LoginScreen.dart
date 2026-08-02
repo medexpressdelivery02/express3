@@ -255,6 +255,7 @@ class _LoginScreen extends State<LoginScreen> {
                 prefs?.setString('phone', num);
                 prefs?.setString('store_name', (rd['2']).toString());
                 prefs?.setString('sub_name', (rd['3']).toString());
+                prefs?.setString('price', (rd['5']).toString());
                 Navigator.of(context).pushNamed('/main');
               } else {
 

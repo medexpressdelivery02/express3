@@ -389,6 +389,7 @@ class _AddSenderScreen extends State<AddSenderScreen> {
                 '2': tec2.text.toString(),
                 '3': tec6.text.toString(),
                 '4': tec5.text.toString(),
+                '5': '0',
               });
 
           setState(() {
