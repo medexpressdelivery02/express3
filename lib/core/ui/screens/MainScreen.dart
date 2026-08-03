@@ -40,9 +40,9 @@ class _MainScreen extends State<MainScreen> {
         if(d.id.startsWith('ECT')) {
 
           if(!st1.contains(d.id)) st1='${st1}trackings[]=${d.id}&';
-        } else {
+        } /*else {
           if(!st2.contains(d.id)) st2='${st2}trackings[]=${d.id}&';
-        }
+        }*/
       }
 
     }catch(e) { }
@@ -54,7 +54,7 @@ class _MainScreen extends State<MainScreen> {
   void get() async {
     var f=await getSt();
     String st1=f[0];
-    String st2=f[1];
+    //String st2=f[1];
 
     if(st1!='') {
 
@@ -70,7 +70,7 @@ class _MainScreen extends State<MainScreen> {
       }catch(e){ }
     }
 
-    if(st2!='') {
+    /*if(st2!='') {
 
       try {
 
@@ -82,7 +82,7 @@ class _MainScreen extends State<MainScreen> {
         OrderPayload payload = OrderPayload.fromJson(res.data);
         ld.addAll(payload.orders);
       }catch(e){ }
-    }
+    }*/
 
     ld.sort((a,b) {
       return a.orderInfo!.created_at!.compareTo(b.orderInfo!.created_at!);
