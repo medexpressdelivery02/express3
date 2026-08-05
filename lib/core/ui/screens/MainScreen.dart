@@ -800,7 +800,7 @@ class _MainScreen extends State<MainScreen> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Text(
-                       f.replaceAll('MED EXPRESS : ', ""),
+                       f.replaceAll('SM EXPRESS : ', ""),
                       style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
                   );
                 }),
