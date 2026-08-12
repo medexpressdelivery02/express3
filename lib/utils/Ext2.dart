@@ -46,7 +46,7 @@ wilaya Chlef=wilaya(2,'Chlef','Chlef',i1: 500, i2: 250,['Chlef'],s0: 'ILYAS',
 
 List<wilaya> MM() {
 
-  if(prefs!.getString('price').toString()=='0') {
+  if(prefs!.getString('price').toString()=='0'||prefs!.getString('price').toString()=='null') {
 
     return [
       wilaya(16,'Alger','Alger',i1: 650, i2: 400,['Bab Ezzouar','Mohammadia','Birkhadem','Cheraga'],
