@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:express3/utils/Ext1.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +49,7 @@ class _SplachScreen extends State<SplachScreen> {
                   child: ListView(
                     shrinkWrap: true,
                     children: [
-                      Center(child: Text('Installer la nouvelle mise à jour pour continuer, ou appeler Bureau Chlef (Ilyas) :\n05.63.63.59.92',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
+                      Center(child: Text('Installer la nouvelle mise à jour pour continuer',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),)),
 
                       SizedBox(height: 12,),
 
@@ -85,7 +87,13 @@ class _SplachScreen extends State<SplachScreen> {
 
         } else {
           var st=prefs?.getString('store_name')??'';
-          Navigator.of(context).pushNamed(st!=''?'/main':'/login');
+          var st2=prefs?.getString('phone')??'';
+
+          if(st2=='0797500896') {
+            exit(0);
+          } else {
+            Navigator.of(context).pushNamed(st!=''?'/main':'/login');
+          }
         }
       }catch(e){
 
