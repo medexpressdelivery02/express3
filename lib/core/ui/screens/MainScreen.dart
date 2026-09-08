@@ -153,7 +153,7 @@ class _MainScreen extends State<MainScreen> {
 
                   Spacer(),
 
-                  Row(
+                  /*Row(
                     children: [
 
                       Spacer(flex: 1,),
@@ -193,7 +193,7 @@ class _MainScreen extends State<MainScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 14,),
+                  SizedBox(height: 14,),*/
 
                   GestureDetector(
                     onTap: () {
@@ -223,7 +223,7 @@ class _MainScreen extends State<MainScreen> {
                     fontSize: 12,
                   ),overflow: TextOverflow.ellipsis,),
 
-                  SizedBox(height: 12,),
+                  SizedBox(height: 16,),
 
                 ],
               ),
