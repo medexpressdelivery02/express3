@@ -597,7 +597,8 @@ class _Main2Screen extends State<Main2Screen> {
     if(cp==2) {
 
       if (d.orderInfo!.stopDesk == 1) {
-        k=Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 8), child: Text(
+
+        if(b!='') k=Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 8), child: Text(
           'Adresse bureau: ($b)',
           style: TextStyle(color: Colors.black.withOpacity(0.7), fontWeight: FontWeight.w600, fontSize: 15),));
       } else if (d.orderInfo!.driverName.toString() != '' && d.orderInfo!.phone.toString() != '') {

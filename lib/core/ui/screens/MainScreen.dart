@@ -573,7 +573,8 @@ class _MainScreen extends State<MainScreen> {
                   ],
                 ),
               ),
-              Positioned(bottom: 0,left: 0,right: 0,child: Container(
+
+              /*Positioned(bottom: 0,left: 0,right: 0,child: Container(
                 height: 44,
                 margin: EdgeInsets.symmetric(vertical: 8,horizontal: 24),
                 decoration: BoxDecoration(
@@ -629,7 +630,8 @@ class _MainScreen extends State<MainScreen> {
 
                   ],
                 ),
-              ),),
+              ),),*/
+
             ],
           ),
         ),
@@ -696,7 +698,8 @@ class _MainScreen extends State<MainScreen> {
     if(cp==2) {
 
       if (d.orderInfo!.stopDesk == 1) {
-        k=Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 8), child: Text(
+
+        if(b!='') k=Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 8), child: Text(
           'Adresse bureau: ($b)',
           style: TextStyle(color: Colors.black.withOpacity(0.7), fontWeight: FontWeight.w600, fontSize: 15),));
       } else if (d.orderInfo!.driverName.toString() != '' && d.orderInfo!.phone.toString() != '') {
